@@ -1,0 +1,413 @@
+/* Enhanced Topics Page Styles */
+
+/* Main Layout */
+.debate-topics-container {
+  background-color: #050f19;
+  background-image: radial-gradient(circle, rgba(5,15,25,1) 0%, rgba(0,0,0,1) 100%);
+  min-height: 100vh;
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 2rem 1rem;
+}
+
+.debate-topics-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.debate-page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.debate-page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #0ce, #60a5fa);
+}
+
+.debate-content-wrapper {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+/* Section Styling */
+.debate-section {
+  margin-bottom: 3rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.debate-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.debate-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.03em;
+}
+
+/* Refresh Button */
+.debate-refresh-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #1a202c;
+  color: #cbd5e0;
+  border: 1px solid #2d3748;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.debate-refresh-button:hover {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+.debate-refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-icon {
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.debate-refresh-button:hover .refresh-icon {
+  transform: rotate(180deg);
+}
+
+/* Loading State */
+.debate-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+}
+
+.debate-loading-spinner {
+  border: 4px solid rgba(0, 204, 238, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #0ce;
+  width: 4rem;
+  height: 4rem;
+  animation: debate-spin 1s linear infinite;
+}
+
+@keyframes debate-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.debate-error-message {
+  background-color: rgba(245, 101, 101, 0.1);
+  border: 1px solid #f56565;
+  color: #f56565;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 768px;
+}
+
+/* Topics List */
+.debate-topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.debate-topic-card {
+  background-color: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.debate-topic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(0, 204, 238, 0.03) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.debate-topic-card:hover::before {
+  transform: translateX(100%);
+}
+
+.debate-topic-card:hover {
+  border-color: #0ce;
+  box-shadow: 0 0 15px rgba(0, 204, 238, 0.2);
+  transform: translateY(-2px);
+}
+
+.debate-topic-card.selected {
+  border-color: #0ce;
+  background-color: rgba(0, 204, 238, 0.1);
+  box-shadow: 0 0 20px rgba(0, 204, 238, 0.3);
+}
+
+.debate-topic-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.debate-topic-title {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 500;
+  padding-right: 1.5rem;
+}
+
+/* Position Cards */
+.debate-positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.debate-position-card {
+  background-color: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.debate-position-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(0, 204, 238, 0.03) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.debate-position-card:hover::before {
+  transform: translateX(100%);
+}
+
+.debate-position-card:hover {
+  border-color: #0ce;
+  box-shadow: 0 0 15px rgba(0, 204, 238, 0.2);
+  transform: translateY(-2px);
+}
+
+.debate-position-card.selected {
+  border-color: #0ce;
+  background-color: rgba(0, 204, 238, 0.1);
+  box-shadow: 0 0 20px rgba(0, 204, 238, 0.3);
+}
+
+.debate-position-content {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.debate-position-label {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* Custom Radio Buttons */
+.debate-radio-button {
+  margin-right: 1rem;
+}
+
+.debate-radio-outer {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 2px solid #4a5568;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.debate-topic-card.selected .debate-radio-outer,
+.debate-position-card.selected .debate-radio-outer {
+  border-color: #0ce;
+}
+
+.debate-radio-inner {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: #0ce;
+  animation: debate-fade-in 0.2s ease-out;
+  box-shadow: 0 0 8px rgba(0, 204, 238, 0.6);
+}
+
+@keyframes debate-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Selection Indicators */
+.debate-selected-indicator {
+  position: absolute;
+  right: 0;
+  color: #0ce;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.debate-selected-indicator::after {
+  content: '›';
+}
+
+.debate-check-indicator {
+  position: absolute;
+  right: 0.5rem;
+  color: #0ce;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.debate-check-indicator::after {
+  content: '✓';
+}
+
+/* No Topics Message */
+.debate-no-topics {
+  text-align: center;
+  color: #a0aec0;
+  padding: 2rem;
+  background-color: rgba(26, 32, 44, 0.5);
+  border-radius: 0.5rem;
+  border: 1px solid #2d3748;
+}
+
+/* Start Debate Button */
+.debate-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.debate-start-button {
+  padding: 0.875rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.debate-start-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.debate-start-button.active {
+  background-color: #0066cc;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 102, 204, 0.4);
+}
+
+.debate-start-button.active:hover {
+  background-color: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.5);
+}
+
+.debate-start-button.active:hover::before {
+  left: 100%;
+}
+
+.debate-start-button.disabled {
+  background-color: #1a202c;
+  color: #4a5568;
+  cursor: not-allowed;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .debate-page-title {
+    font-size: 2rem;
+  }
+  
+  .debate-section-title {
+    font-size: 1.25rem;
+  }
+  
+  .debate-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .debate-refresh-button {
+    align-self: flex-end;
+  }
+  
+  .debate-start-button {
+    width: 100%;
+  }
+}

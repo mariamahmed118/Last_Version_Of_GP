@@ -1,0 +1,30 @@
+/* animated-svg.css */
+
+/* Base styles for the SVG/Lottie container */
+.animated-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure Lottie player fills the container */
+.animated-svg .lottie-player {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Hover effects */
+.animated-svg:hover {
+  filter: drop-shadow(0 0 5px rgba(0, 204, 238, 0.7));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animated-svg {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}

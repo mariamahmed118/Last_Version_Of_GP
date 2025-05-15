@@ -1,0 +1,373 @@
+/* Home Page Styles */
+
+/* Layout and Background */
+.hero-section {
+  height: 200vh;
+  position: relative;
+}
+
+.fixed-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex; /* جعل المحتوى مرن */
+  flex-direction: row; /* افتراضي: صف */
+  z-index: 10; /* Add a z-index to control layering */
+  transition: opacity 0.5s ease-out; /* Add transition for smooth fade */
+}
+
+.fixed-viewport.hidden {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(5,15,25,1) 0%, rgba(0,0,0,1) 100%);
+  z-index: -1;
+}
+
+/* Robot Container - Modified to be larger and positioned correctly */
+.robot-container {
+  position: absolute;
+  bottom: 10%;
+  left: 55%;
+  opacity: 1;
+  z-index: 10;
+  width: 600px;
+  height: 700px;
+  transition: opacity 0.4s ease-in-out, transform 0.3s ease-out;
+  /* Debug outline - uncomment to see container boundaries */
+  /* outline: 1px solid red; */
+}
+
+.robot-container.hidden {
+  opacity: 0;
+}
+
+/* Text Content Container */
+.text-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+  transition: opacity 0.5s;
+  z-index: 2; /* Ensure text appears above the robot */
+}
+
+.text-content.faded {
+  opacity: 0;
+}
+
+.text-content-inner {
+  max-width: 500px;
+  margin-left: 5%;
+  text-align: left;
+}
+
+/* Typography */
+.small-header {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.brand-logo {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.brand-logo span {
+  color: #0ce;
+}
+
+.main-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 1rem;
+  color: #ccc;
+  max-width: 500px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+/* Button */
+.try-now-btn {
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid #0ce;
+  color: #0ce;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 204, 238, 0.2);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.try-now-btn:hover {
+  background-color: rgba(0, 204, 238, 0.1);
+  box-shadow: 0 0 20px rgba(0, 204, 238, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Error message */
+.error-message {
+  color: #f56565;
+  margin-top: 1rem;
+}
+
+/* Why Choose Us - Enhanced Styles for Dark Theme */
+#why-choose-us {
+  background-color: #0f172a;
+  padding: 5rem 0;
+}
+
+#why-choose-us h2 {
+  color: #60a5fa;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+#why-choose-us h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #0ce, #60a5fa);
+}
+
+/* Feature card styles */
+#why-choose-us .bg-gray-800 {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(96, 165, 250, 0.1);
+  background: rgba(30, 41, 59, 0.8);
+  height: 100%;
+}
+
+#why-choose-us .bg-gray-800:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 204, 238, 0.2);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* SVG icon container */
+#why-choose-us img {
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(0, 204, 238, 0.5));
+}
+
+#why-choose-us .bg-gray-800:hover img {
+  transform: scale(1.1);
+}
+
+/* Feature title */
+#why-choose-us h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+/* Feature description */
+#why-choose-us p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* Call to action button */
+#why-choose-us .bg-blue-600 {
+  background-color: #0ce;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 204, 238, 0.5);
+  transition: all 0.3s ease;
+}
+
+#why-choose-us .bg-blue-600:hover {
+  background-color: #00b8d4;
+  box-shadow: 0 6px 20px rgba(0, 204, 238, 0.7);
+  transform: translateY(-3px);
+}
+
+/* تعديلات الاستجابة (Responsive) المحسنة */
+/* شاشات كبيرة - Large screens */
+@media (max-width: 1200px) {
+  .robot-container {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 600px;
+    bottom: 5%;
+  }
+  
+  .text-content-inner {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 600px;
+    padding: 2rem;
+  }
+}
+
+/* شاشات متوسطة - Medium screens */
+@media (max-width: 992px) {
+  .robot-container {
+    width: 400px;
+    height: 500px;
+  }
+  
+  .main-heading {
+    font-size: 2.5rem;
+  }
+  
+  .description {
+    max-width: 100%;
+  }
+  
+  #why-choose-us .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* شاشات صغيرة - Small screens */
+@media (max-width: 768px) {
+  .fixed-viewport {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .robot-container {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 1rem auto;
+    order: 1;
+    bottom: auto;
+    left: auto;
+    transform: none;
+  }
+  
+  .text-content {
+    position: relative;
+    order: 2;
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .text-content-inner {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .main-heading {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .brand-logo {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .description {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
+  #why-choose-us .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  #why-choose-us .bg-gray-800 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* شاشات صغيرة جداً - Extra small screens */
+@media (max-width: 480px) {
+  .robot-container {
+    width: 220px;
+    height: 260px;
+  }
+  
+  .main-heading {
+    font-size: 1.6rem;
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+  }
+  
+  .small-header {
+    font-size: 0.7rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .try-now-btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.75rem;
+  }
+  
+  .text-content {
+    padding: 0.5rem;
+  }
+  
+  #why-choose-us h2 {
+    font-size: 1.75rem;
+  }
+  
+  #why-choose-us h3 {
+    font-size: 1.25rem;
+  }
+}

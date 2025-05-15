@@ -1,36 +1,26 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, doc, setDoc, collection, getDocs } from 'firebase/firestore';
+import { initializeApp, getApps } from "firebase/app";
+import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: 'YOUR_APP_ID',
+  apiKey: "AIzaSyDe5zWlWwn8B5uFFa3Rdd0at2ntou1xT1w",
+  authDomain: "back-end-3314b.firebaseapp.com",
+  projectId: "back-end-3314b",
+  storageBucket: "back-end-3314b.appspot.com",
+  messagingSenderId: "347522424475",
+  appId: "1:347522424475:web:368aed68cd33d0a939703e",
+  measurementId: "G-J9ZEPYNTM1",
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+let app;
+let auth;
+let db;
 
-export const loginUser = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password);
-};
+if (typeof window !== "undefined" && !getApps().length) {
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  setPersistence(auth, browserLocalPersistence);
+  db = getFirestore(app);
+}
 
-export const signupUser = (email, password) => {
-  return createUserWithEmailAndPassword(auth, email, password);
-};
-
-export const saveDebate = async (userId, debateData) => {
-  const debateRef = doc(collection(db, 'users', userId, 'debates'));
-  await setDoc(debateRef, debateData);
-  return debateRef.id;
-};
-
-export const getUserDebates = async (userId) => {
-  const debatesRef = collection(db, 'users', userId, 'debates');
-  const snapshot = await getDocs(debatesRef);
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-};
+export { app, auth, db };

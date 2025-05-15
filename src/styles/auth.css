@@ -1,0 +1,352 @@
+/* auth.css - Completely restored original layout with larger robot */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Ensure box-sizing is applied globally */
+* {
+  box-sizing: border-box;
+}
+
+/* Main container should not exceed viewport width */
+.main-container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #020810;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Content wrapper with adjustment to account for navbar */
+.content-wrapper {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  box-sizing: border-box;
+}
+
+/* Side-by-side layout for main auth content */
+.auth-content.side-by-side {
+  display: flex;
+  min-height: calc(100vh - 60px); /* Adjusted to fit navbar */
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Remove vertical scroll in desktop unless content overflows naturally */
+  overflow-y: hidden; /* Added to prevent vertical scroll in desktop */
+}
+
+/* Left side content */
+.auth-left-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  min-height: 0; /* Prevent flex child from growing beyond content */
+}
+
+/* Content container for left side */
+.auth-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 100%;
+  min-height: 0; /* Prevent overflow */
+}
+
+/* Title styling */
+.auth-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.auth-title h2 {
+  font-size: 2.5rem;
+  color: #0ce;
+  text-shadow: 0 0 15px rgba(0, 204, 238, 0.6);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* 3D model container - LARGER bubble as requested */
+.auth-3d-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 
+    0 0 20px rgba(0, 204, 238, 0.4),
+    0 0 40px rgba(0, 204, 238, 0.2);
+  position: relative;
+  border: 2px solid rgba(0, 204, 238, 0.5);
+  margin: 1rem auto;
+}
+
+/* Tagline styling */
+.auth-tagline {
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Animated text */
+.animated-text {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  min-height: 2rem;
+  font-weight: 300;
+}
+
+/* Container for sign-in button */
+.auth-action-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+/* Error message */
+.error-message {
+  color: #ff6b6b;
+  margin: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Enhanced Google auth button */
+.enhanced-google-auth {
+  margin: 0.5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.enhanced-auth-button {
+  background: linear-gradient(45deg, #0ce, #05a);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 204, 238, 0.3);
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+.enhanced-auth-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(0, 204, 238, 0.4),
+    0 0 30px rgba(0, 204, 238, 0.2);
+}
+
+.enhanced-auth-button:active {
+  transform: translateY(1px);
+}
+
+.enhanced-auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Right side with Why Join section - Made more compact */
+.auth-right-side {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  width: 100%;
+  min-height: 0; /* Prevent flex child from growing beyond content */
+}
+
+/* Why Join container - More compact as requested */
+.why-join-container {
+  padding: 1.8rem;
+  border-radius: 1rem;
+  background-color: rgba(5, 15, 30, 0.2);
+  box-shadow: 
+    0 0 20px rgba(0, 204, 238, 0.3),
+    0 0 40px rgba(0, 204, 238, 0.1);
+  width: 90%;
+  max-width: 450px;
+  border: 2px solid rgba(0, 204, 238, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.why-join-container h3 {
+  color: #0ce;
+  font-size: 1.8rem;
+  margin-bottom: 1.4rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 204, 238, 0.4);
+}
+
+.why-join-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.why-join-container li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.why-join-container li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #0ce;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 204, 238, 0.5);
+}
+
+/* Privacy note */
+.auth-privacy-note {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: 0 1rem;
+  line-height: 1.5;
+}
+
+/* Enhanced responsive design - Fixed navbar overlap issues */
+@media (max-width: 1200px) {
+  .auth-title h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .auth-content.side-by-side {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .auth-left-side,
+  .auth-right-side {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .why-join-container {
+    margin-top: 1rem;
+  }
+
+  .auth-3d-container {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding-top: 80px;
+  }
+
+  .auth-content.side-by-side {
+    flex-direction: column;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    min-height: auto;
+    height: auto;
+    overflow-y: auto; /* Allow vertical scroll in mobile if content overflows */
+  }
+
+  .auth-left-side,
+  .auth-right-side {
+    width: 100%;
+    padding: 1rem;
+    max-width: 100vw;
+  }
+
+  .why-join-container {
+    width: 95%;
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .auth-3d-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .auth-title h2 {
+    font-size: 2rem;
+  }
+
+  .animated-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding-top: 70px;
+  }
+
+  .auth-left-side,
+  .auth-right-side {
+    padding: 1rem;
+  }
+
+  .why-join-container {
+    padding: 1.2rem;
+  }
+
+  .why-join-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .why-join-container li {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .auth-title h2 {
+    font-size: 1.7rem;
+  }
+
+  .animated-text {
+    font-size: 1rem;
+  }
+
+  .enhanced-auth-button {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .auth-3d-container {
+    width: 120px;
+    height: 120px;
+  }
+}

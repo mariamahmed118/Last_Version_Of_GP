@@ -1,0 +1,284 @@
+                /* Refined NavBar.css with improved snake animation and professional spacing */
+
+                .navbar {
+                    background-color:#050f19; /* This stays transparent */
+                    backdrop-filter: none; /* Removed the blur effect */
+                    -webkit-backdrop-filter: none; /* Removed the blur effect */
+                    position: fixed;
+                    width: 100%;
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                    top: 0;
+                    padding: 0.8rem 0;
+                }
+                
+                .navbar.scrolled {
+                    background-color: #050f19;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+                
+                .navbar-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0.4rem 2rem;
+                    max-width: 1400px;
+                    margin: 0 auto;
+                }
+                
+                /* Enhanced logo design with more advanced animation */
+                .navbar-logo {
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    color: #0ce;
+                    text-decoration: none;
+                    letter-spacing: 0.03em;
+                    transition: transform 0.3s ease;
+                    position: relative;
+                    text-shadow: 0 0 5px rgba(0, 204, 238, 0.5);
+                }
+                
+                .navbar-logo:hover {
+                    transform: scale(1.05);
+                    text-shadow: 0 0 10px rgba(0, 204, 238, 0.8),
+                                0 0 20px rgba(0, 204, 238, 0.4),
+                                0 0 30px rgba(0, 204, 238, 0.2);
+                }
+                
+                /* Advanced glow animation for logo */
+                .navbar-logo::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -10px;
+                    right: -10px;
+                    bottom: 0;
+                    border-radius: 8px;
+                    background: linear-gradient(90deg, transparent, rgba(0, 204, 238, 0.1), transparent);
+                    z-index: -1;
+                    animation: neon-sweep 2.5s infinite;
+                }
+                
+                @keyframes neon-sweep {
+                    0% {
+                    opacity: 0;
+                    transform: translateX(-100%);
+                    }
+                    50% {
+                    opacity: 1;
+                    }
+                    100% {
+                    opacity: 0;
+                    transform: translateX(100%);
+                    }
+                }
+                
+                /* Animated dot for logo - enhanced */
+                .navbar-logo::after {
+                    content: "";
+                    display: inline-block;
+                    height: 5px;
+                    width: 5px;
+                    border-radius: 50%;
+                    background: #0ce;
+                    margin-left: 6px;
+                    vertical-align: middle;
+                    animation: pulse 1.5s infinite;
+                    box-shadow: 0 0 12px 3px rgba(0, 204, 238, 0.8);
+                }
+                
+                @keyframes pulse {
+                    0% {
+                    opacity: 0.5;
+                    transform: scale(1);
+                    }
+                    50% {
+                    opacity: 1;
+                    transform: scale(1.5);
+                    }
+                    100% {
+                    opacity: 0.5;
+                    transform: scale(1);
+                    }
+                }
+                
+                /* Navigation links with improved snake effect */
+                .navbar-links {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                }
+                
+                .navbar-link {
+                    color: rgba(255, 255, 255, 0.85);
+                    transition: all 0.2s ease;
+                    cursor: pointer;
+                    font-weight: 500;
+                    position: relative;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.03em;
+                    text-transform: uppercase;
+                    padding: 0.3rem 0.7rem;
+                    text-decoration: none !important;
+                    background: transparent;
+                }
+                
+                /* Enhanced hover effect */
+                .navbar-link:hover, .navbar-link.active {
+                    color: #0ce;
+                    text-shadow: 0 0 5px rgba(0, 204, 238, 0.5);
+                }
+                
+                /* IMPROVED: Ultra-fast snake border animation */
+                .navbar-link::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border: 0px solid transparent;
+                    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    border-radius: 0;
+                    opacity: 0;
+                }
+                
+                .navbar-link:hover::before, .navbar-link.active::before {
+                    border-width: 1px;
+                    opacity: 1;
+                    animation: snake-border-continuous 0.8s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+                    animation-delay: 0.05s;
+                }
+                
+                /* IMPROVED: Much faster continuous animation */
+                @keyframes snake-border-continuous {
+                    /* Starting state - top border only */
+                    0% {
+                    border-top-color: #0ce;
+                    border-right-color: transparent;
+                    border-bottom-color: transparent;
+                    border-left-color: transparent;
+                    }
+                    
+                    /* Top and right borders */
+                    25% {
+                    border-top-color: #0ce;
+                    border-right-color: #0ce;
+                    border-bottom-color: transparent;
+                    border-left-color: transparent;
+                    }
+                    
+                    /* Top, right and bottom borders */
+                    50% {
+                    border-top-color: #0ce;
+                    border-right-color: #0ce;
+                    border-bottom-color: #0ce;
+                    border-left-color: transparent;
+                    }
+                    
+                    /* All four borders complete */
+                    75% {
+                    border-top-color: #0ce;
+                    border-right-color: #0ce;
+                    border-bottom-color: #0ce;
+                    border-left-color: #0ce;
+                    }
+                    
+                    /* Return to starting state (but never disappears) */
+                    100% {
+                    border-top-color: #0ce;
+                    border-right-color: transparent;
+                    border-bottom-color: transparent;
+                    border-left-color: transparent;
+                    }
+                }
+                
+                /* Mobile menu button */
+                .mobile-menu-button {
+                    display: none;
+                    color: #0ce;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    width: 34px;
+                    height: 34px;
+                    border-radius: 50%;
+                    align-items: center;
+                    justify-content: center;
+                    background: transparent;
+                    border: 1px solid rgba(0, 204, 238, 0.3);
+                    box-shadow: 0 0 5px rgba(0, 204, 238, 0.2);
+                }
+                
+                .mobile-menu-button:hover {
+                    box-shadow: 0 0 10px rgba(0, 204, 238, 0.5);
+                    background: rgba(0, 204, 238, 0.1);
+                }
+                
+
+                
+                .hero-section {
+                    margin-top: 80px;
+                }
+                
+                /* Responsive design fixes */
+                @media (max-width: 768px) {
+                    .navbar-links {
+                    display: none;
+                    }
+                    
+                    .mobile-menu-button {
+                    display: flex;
+                    }
+                    
+                    /* Mobile menu should be hidden by default */
+                    .mobile-menu {
+                    position: fixed;
+                    top: 60px;
+                    left: 0;
+                    right: 0;
+                    background: rgba(5, 15, 25, 0.95); /* Keep this semi-transparent for mobile menu */
+                    backdrop-filter: blur(10px); /* Keep blur only for mobile menu */
+                    padding: 0.8rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.8rem;
+                    transform: translateY(-100%);
+                    opacity: 0;
+                    transition: all 0.3s ease;
+                    z-index: 999;
+                    /* Hide by default */
+                    visibility: hidden;
+                    }
+                    
+                    /* Only show when open class is added */
+                    .mobile-menu.open {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                    }
+                    
+                    /* Special styling for mobile menu links */
+                    .mobile-menu .navbar-link {
+                    padding: 0.6rem;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 0.85rem;
+                    transition: all 0.2s ease;
+                    border-radius: 4px;
+                    }
+                    
+                    /* Remove Snake animation for mobile menu */
+                    .mobile-menu .navbar-link::before {
+                    display: none;
+                    }
+                    
+                    /* Adjust hover effect for mobile menu - remove glowing background, keep text glow */
+                    .mobile-menu .navbar-link:hover, 
+                    .mobile-menu .navbar-link.active {
+                    background-color: transparent;
+                    color: #0ce;
+                    text-shadow: 0 0 8px rgba(0, 204, 238, 0.7);
+                    box-shadow: none;
+                    }
+                }

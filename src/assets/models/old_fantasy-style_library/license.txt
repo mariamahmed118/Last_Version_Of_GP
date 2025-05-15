@@ -1,0 +1,11 @@
+Model Information:
+* title:	Old Fantasy-Style Library
+* source:	https://sketchfab.com/3d-models/old-fantasy-style-library-e5fb42ec33dc40a2885612c4bde8505a
+* author:	Gwiblet (https://sketchfab.com/Gwiblet)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Old Fantasy-Style Library" (https://sketchfab.com/3d-models/old-fantasy-style-library-e5fb42ec33dc40a2885612c4bde8505a) by Gwiblet (https://sketchfab.com/Gwiblet) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
