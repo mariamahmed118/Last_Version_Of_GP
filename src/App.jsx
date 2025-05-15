@@ -12,7 +12,8 @@ import Footer from './components/Footer';
 // Create a layout component that conditionally renders the footer
 const Layout = ({ children }) => {
   const location = useLocation();
-  const isAuthPage = location.pathname === '/auth';
+  const hideFooterPaths = ['/auth', '/topics']; // Paths where footer should be hidden
+  const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
 
   return (
     <>
@@ -20,7 +21,7 @@ const Layout = ({ children }) => {
       <main className="main-content">
         {children}
       </main>
-      {!isAuthPage && <Footer />}
+      {shouldShowFooter && <Footer />}
     </>
   );
 };
